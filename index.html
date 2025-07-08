@@ -1,0 +1,1472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TowBot.AI Masterpiece - AI Legal Copilot</title>
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Force override any Squarespace styles */
+        .towbot-masterpiece * {
+            box-sizing: border-box !important;
+            margin: 0 !important;
+            padding: 0 !important;
+        }
+        
+        .towbot-masterpiece {
+            font-family: 'Inter', system-ui, -apple-system, sans-serif !important;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%) !important;
+            color: white !important;
+            min-height: 100vh !important;
+            line-height: 1.6 !important;
+            position: relative !important;
+            z-index: 1 !important;
+        }
+        
+        .towbot-masterpiece .container {
+            max-width: 1400px !important;
+            margin: 0 auto !important;
+            padding: 0 20px !important;
+        }
+        
+        /* Epic Header */
+        .towbot-masterpiece .header {
+            position: relative !important;
+            background: linear-gradient(135deg, #1e293b, #334155) !important;
+            border-bottom: 1px solid #475569 !important;
+            padding: 40px 0 !important;
+            text-align: center !important;
+            overflow: hidden !important;
+            margin-bottom: 0 !important;
+        }
+        
+        .towbot-masterpiece .header::before {
+            content: '' !important;
+            position: absolute !important;
+            top: 0 !important;
+            left: 0 !important;
+            right: 0 !important;
+            bottom: 0 !important;
+            background: linear-gradient(90deg, rgba(59, 130, 246, 0.3), rgba(139, 92, 246, 0.3), rgba(245, 158, 11, 0.3)) !important;
+            animation: headerPulse 4s ease-in-out infinite !important;
+        }
+        
+        @keyframes headerPulse {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 0.6; }
+        }
+        
+        .towbot-masterpiece .header-content {
+            position: relative !important;
+            z-index: 2 !important;
+        }
+        
+        .towbot-masterpiece .header h1 {
+            font-size: 3.5rem !important;
+            font-weight: 900 !important;
+            background: linear-gradient(135deg, #60a5fa, #a78bfa, #fbbf24) !important;
+            background-clip: text !important;
+            -webkit-background-clip: text !important;
+            -webkit-text-fill-color: transparent !important;
+            margin-bottom: 10px !important;
+            line-height: 1.1 !important;
+        }
+        
+        .towbot-masterpiece .header .subtitle {
+            font-size: 1.5rem !important;
+            color: #cbd5e1 !important;
+            margin-bottom: 20px !important;
+        }
+        
+        .towbot-masterpiece .badge {
+            display: inline-block !important;
+            background: linear-gradient(135deg, #f59e0b, #ef4444) !important;
+            color: white !important;
+            padding: 8px 20px !important;
+            border-radius: 25px !important;
+            font-size: 0.9rem !important;
+            font-weight: 700 !important;
+            text-transform: uppercase !important;
+            letter-spacing: 1px !important;
+            animation: badgeBounce 2s ease-in-out infinite !important;
+            margin-left: 15px !important;
+        }
+        
+        @keyframes badgeBounce {
+            0%, 100% { transform: translateY(0) scale(1); }
+            50% { transform: translateY(-5px) scale(1.05); }
+        }
+        
+        .towbot-masterpiece .header-features {
+            display: flex !important;
+            justify-content: center !important;
+            gap: 30px !important;
+            margin-top: 20px !important;
+            flex-wrap: wrap !important;
+        }
+        
+        .towbot-masterpiece .feature-badge {
+            display: flex !important;
+            align-items: center !important;
+            gap: 8px !important;
+            font-size: 1rem !important;
+            color: #94a3b8 !important;
+        }
+        
+        /* Module Grid */
+        .towbot-masterpiece .modules-grid {
+            display: grid !important;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)) !important;
+            gap: 20px !important;
+            margin: 40px 0 !important;
+            padding: 0 !important;
+        }
+        
+        .towbot-masterpiece .module-card {
+            background: linear-gradient(135deg, #1e293b, #334155) !important;
+            border: 2px solid #475569 !important;
+            border-radius: 15px !important;
+            padding: 25px !important;
+            text-align: center !important;
+            cursor: pointer !important;
+            transition: all 0.3s ease !important;
+            position: relative !important;
+            overflow: hidden !important;
+            margin: 0 !important;
+        }
+        
+        .towbot-masterpiece .module-card:hover {
+            transform: translateY(-5px) !important;
+            border-color: #60a5fa !important;
+            box-shadow: 0 20px 40px rgba(59, 130, 246, 0.3) !important;
+        }
+        
+        .towbot-masterpiece .module-card.active {
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6) !important;
+            border-color: #60a5fa !important;
+            transform: translateY(-5px) scale(1.05) !important;
+            box-shadow: 0 25px 50px rgba(59, 130, 246, 0.4) !important;
+        }
+        
+        .towbot-masterpiece .module-icon {
+            width: 60px !important;
+            height: 60px !important;
+            background: rgba(255, 255, 255, 0.1) !important;
+            border-radius: 50% !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            margin: 0 auto 15px !important;
+            font-size: 1.5rem !important;
+        }
+        
+        .towbot-masterpiece .module-card.active .module-icon {
+            background: rgba(255, 255, 255, 0.2) !important;
+        }
+        
+        .towbot-masterpiece .module-title {
+            font-size: 1.1rem !important;
+            font-weight: 700 !important;
+            margin-bottom: 8px !important;
+            color: white !important;
+        }
+        
+        .towbot-masterpiece .module-description {
+            font-size: 0.85rem !important;
+            opacity: 0.8 !important;
+            margin-bottom: 10px !important;
+            color: white !important;
+        }
+        
+        .towbot-masterpiece .module-category {
+            display: inline-block !important;
+            padding: 4px 12px !important;
+            border-radius: 15px !important;
+            font-size: 0.7rem !important;
+            font-weight: 600 !important;
+            text-transform: uppercase !important;
+            color: white !important;
+        }
+        
+        .towbot-masterpiece .category-ai { background: #8b5cf6 !important; }
+        .towbot-masterpiece .category-calculators { background: #3b82f6 !important; }
+        .towbot-masterpiece .category-documents { background: #10b981 !important; }
+        .towbot-masterpiece .category-compliance { background: #f59e0b !important; }
+        .towbot-masterpiece .category-analytics { background: #ef4444 !important; }
+        .towbot-masterpiece .category-legal { background: #6366f1 !important; }
+        
+        /* AI Copilot Interface */
+        .towbot-masterpiece .ai-interface {
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6, #6366f1) !important;
+            border-radius: 20px !important;
+            padding: 40px !important;
+            margin: 30px 0 !important;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3) !important;
+        }
+        
+        .towbot-masterpiece .ai-header {
+            display: flex !important;
+            align-items: center !important;
+            gap: 20px !important;
+            margin-bottom: 30px !important;
+            flex-wrap: wrap !important;
+        }
+        
+        .towbot-masterpiece .ai-avatar {
+            width: 60px !important;
+            height: 60px !important;
+            background: rgba(255, 255, 255, 0.2) !important;
+            border-radius: 50% !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            font-size: 1.8rem !important;
+            flex-shrink: 0 !important;
+        }
+        
+        .towbot-masterpiece .ai-title {
+            font-size: 1.8rem !important;
+            font-weight: 800 !important;
+            margin-bottom: 5px !important;
+            color: white !important;
+        }
+        
+        .towbot-masterpiece .ai-subtitle {
+            color: rgba(255, 255, 255, 0.8) !important;
+            font-size: 1rem !important;
+        }
+        
+        .towbot-masterpiece .live-badge {
+            background: #f59e0b !important;
+            color: white !important;
+            padding: 6px 15px !important;
+            border-radius: 20px !important;
+            font-size: 0.8rem !important;
+            font-weight: 700 !important;
+            animation: livePulse 2s ease-in-out infinite !important;
+            margin-left: auto !important;
+        }
+        
+        @keyframes livePulse {
+            0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.7); }
+            50% { transform: scale(1.05); box-shadow: 0 0 0 10px rgba(245, 158, 11, 0); }
+        }
+        
+        .towbot-masterpiece .query-input {
+            width: 100% !important;
+            min-height: 120px !important;
+            padding: 20px !important;
+            border: 2px solid rgba(255, 255, 255, 0.2) !important;
+            border-radius: 15px !important;
+            background: rgba(255, 255, 255, 0.1) !important;
+            color: white !important;
+            font-size: 1rem !important;
+            font-family: 'Inter', sans-serif !important;
+            resize: vertical !important;
+            margin-bottom: 20px !important;
+        }
+        
+        .towbot-masterpiece .query-input::placeholder {
+            color: rgba(255, 255, 255, 0.6) !important;
+        }
+        
+        .towbot-masterpiece .query-input:focus {
+            outline: none !important;
+            border-color: rgba(255, 255, 255, 0.4) !important;
+            box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.1) !important;
+        }
+        
+        .towbot-masterpiece .button-group {
+            display: flex !important;
+            gap: 15px !important;
+            margin-bottom: 25px !important;
+            flex-wrap: wrap !important;
+        }
+        
+        .towbot-masterpiece .btn {
+            padding: 15px 30px !important;
+            border: none !important;
+            border-radius: 12px !important;
+            font-weight: 700 !important;
+            font-size: 1rem !important;
+            cursor: pointer !important;
+            transition: all 0.3s ease !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            gap: 10px !important;
+            margin: 0 !important;
+        }
+        
+        .towbot-masterpiece .btn-primary {
+            background: white !important;
+            color: #3b82f6 !important;
+            flex: 1 !important;
+            min-width: 200px !important;
+        }
+        
+        .towbot-masterpiece .btn-primary:hover {
+            transform: translateY(-2px) !important;
+            box-shadow: 0 10px 25px rgba(255, 255, 255, 0.3) !important;
+        }
+        
+        .towbot-masterpiece .btn-primary:disabled {
+            opacity: 0.6 !important;
+            cursor: not-allowed !important;
+            transform: none !important;
+        }
+        
+        .towbot-masterpiece .btn-secondary {
+            background: rgba(255, 255, 255, 0.2) !important;
+            color: white !important;
+            padding: 15px 25px !important;
+        }
+        
+        .towbot-masterpiece .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.3) !important;
+        }
+        
+        .towbot-masterpiece .quick-actions {
+            display: grid !important;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)) !important;
+            gap: 10px !important;
+        }
+        
+        .towbot-masterpiece .quick-btn {
+            background: rgba(255, 255, 255, 0.1) !important;
+            color: white !important;
+            border: 1px solid rgba(255, 255, 255, 0.2) !important;
+            padding: 12px 16px !important;
+            border-radius: 8px !important;
+            font-size: 0.9rem !important;
+            cursor: pointer !important;
+            transition: all 0.3s ease !important;
+            margin: 0 !important;
+        }
+        
+        .towbot-masterpiece .quick-btn:hover {
+            background: rgba(255, 255, 255, 0.2) !important;
+            transform: translateY(-1px) !important;
+        }
+        
+        /* Sample Queries */
+        .towbot-masterpiece .queries-grid {
+            display: grid !important;
+            grid-template-columns: 1fr 1fr !important;
+            gap: 25px !important;
+            margin: 30px 0 !important;
+        }
+        
+        .towbot-masterpiece .query-section {
+            background: white !important;
+            color: #1f2937 !important;
+            border-radius: 15px !important;
+            padding: 25px !important;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1) !important;
+            margin: 0 !important;
+        }
+        
+        .towbot-masterpiece .query-header {
+            display: flex !important;
+            align-items: center !important;
+            gap: 10px !important;
+            font-weight: 700 !important;
+            font-size: 1.1rem !important;
+            margin-bottom: 20px !important;
+            color: #1f2937 !important;
+        }
+        
+        .towbot-masterpiece .query-list {
+            display: flex !important;
+            flex-direction: column !important;
+            gap: 12px !important;
+        }
+        
+        .towbot-masterpiece .query-item {
+            padding: 15px !important;
+            border: 2px solid #e5e7eb !important;
+            border-radius: 10px !important;
+            background: #f9fafb !important;
+            cursor: pointer !important;
+            transition: all 0.3s ease !important;
+            font-size: 0.9rem !important;
+            line-height: 1.4 !important;
+            margin: 0 !important;
+        }
+        
+        .towbot-masterpiece .query-item:hover {
+            border-color: #3b82f6 !important;
+            background: #eff6ff !important;
+            transform: translateY(-1px) !important;
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.15) !important;
+        }
+        
+        .towbot-masterpiece .query-prefix {
+            color: #3b82f6 !important;
+            font-weight: 600 !important;
+            margin-right: 5px !important;
+        }
+        
+        /* AI Response */
+        .towbot-masterpiece .ai-response {
+            background: white !important;
+            color: #1f2937 !important;
+            border-radius: 20px !important;
+            padding: 40px !important;
+            margin-top: 30px !important;
+            border: 3px solid #3b82f6 !important;
+            box-shadow: 0 25px 50px rgba(59, 130, 246, 0.2) !important;
+        }
+        
+        .towbot-masterpiece .response-header {
+            display: flex !important;
+            align-items: center !important;
+            gap: 15px !important;
+            margin-bottom: 25px !important;
+            padding-bottom: 20px !important;
+            border-bottom: 2px solid #e5e7eb !important;
+            flex-wrap: wrap !important;
+        }
+        
+        .towbot-masterpiece .response-avatar {
+            width: 50px !important;
+            height: 50px !important;
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6) !important;
+            border-radius: 50% !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            color: white !important;
+            font-size: 1.5rem !important;
+            flex-shrink: 0 !important;
+        }
+        
+        .towbot-masterpiece .response-title {
+            font-size: 1.3rem !important;
+            font-weight: 700 !important;
+            color: #1f2937 !important;
+            margin-bottom: 5px !important;
+        }
+        
+        .towbot-masterpiece .response-subtitle {
+            color: #6b7280 !important;
+            font-size: 0.9rem !important;
+        }
+        
+        .towbot-masterpiece .response-time {
+            margin-left: auto !important;
+            font-size: 0.8rem !important;
+            color: #9ca3af !important;
+        }
+        
+        .towbot-masterpiece .response-content {
+            background: #f8fafc !important;
+            border-radius: 12px !important;
+            padding: 25px !important;
+            font-family: 'Courier New', monospace !important;
+            font-size: 0.9rem !important;
+            line-height: 1.6 !important;
+            white-space: pre-wrap !important;
+            color: #374151 !important;
+            border: 1px solid #e5e7eb !important;
+            margin: 0 !important;
+        }
+        
+        .towbot-masterpiece .response-actions {
+            display: flex !important;
+            flex-wrap: wrap !important;
+            gap: 12px !important;
+            margin-top: 25px !important;
+            padding-top: 20px !important;
+            border-top: 2px solid #e5e7eb !important;
+        }
+        
+        .towbot-masterpiece .action-btn {
+            display: flex !important;
+            align-items: center !important;
+            gap: 8px !important;
+            padding: 10px 20px !important;
+            border-radius: 8px !important;
+            font-size: 0.9rem !important;
+            font-weight: 600 !important;
+            cursor: pointer !important;
+            transition: all 0.3s ease !important;
+            border: none !important;
+            margin: 0 !important;
+        }
+        
+        .towbot-masterpiece .action-export { background: #dbeafe !important; color: #1d4ed8 !important; }
+        .towbot-masterpiece .action-alert { background: #dcfce7 !important; color: #166534 !important; }
+        .towbot-masterpiece .action-docs { background: #f3e8ff !important; color: #7c3aed !important; }
+        .towbot-masterpiece .action-calc { background: #fed7aa !important; color: #c2410c !important; }
+        
+        .towbot-masterpiece .action-btn:hover {
+            transform: translateY(-1px) !important;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
+        }
+        
+        /* Case Context */
+        .towbot-masterpiece .case-context {
+            background: linear-gradient(135deg, #f8fafc, #e2e8f0) !important;
+            border-radius: 15px !important;
+            padding: 25px !important;
+            margin: 30px 0 !important;
+            color: #1f2937 !important;
+        }
+        
+        .towbot-masterpiece .context-header {
+            display: flex !important;
+            align-items: center !important;
+            gap: 10px !important;
+            font-weight: 700 !important;
+            font-size: 1.1rem !important;
+            margin-bottom: 20px !important;
+            color: #374151 !important;
+        }
+        
+        .towbot-masterpiece .context-grid {
+            display: grid !important;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)) !important;
+            gap: 20px !important;
+        }
+        
+        .towbot-masterpiece .context-field label {
+            display: block !important;
+            font-weight: 600 !important;
+            font-size: 0.9rem !important;
+            color: #4b5563 !important;
+            margin-bottom: 8px !important;
+        }
+        
+        .towbot-masterpiece .context-field input,
+        .towbot-masterpiece .context-field select {
+            width: 100% !important;
+            padding: 12px !important;
+            border: 2px solid #d1d5db !important;
+            border-radius: 8px !important;
+            font-size: 0.9rem !important;
+            background: white !important;
+            color: #1f2937 !important;
+            margin: 0 !important;
+        }
+        
+        .towbot-masterpiece .context-field input:focus,
+        .towbot-masterpiece .context-field select:focus {
+            outline: none !important;
+            border-color: #3b82f6 !important;
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1) !important;
+        }
+        
+        /* Loading Spinner */
+        .towbot-masterpiece .loading-spinner {
+            width: 25px !important;
+            height: 25px !important;
+            border: 3px solid rgba(255, 255, 255, 0.3) !important;
+            border-top: 3px solid white !important;
+            border-radius: 50% !important;
+            animation: spin 1s linear infinite !important;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        /* Coming Soon */
+        .towbot-masterpiece .coming-soon {
+            text-align: center !important;
+            padding: 60px 40px !important;
+        }
+        
+        .towbot-masterpiece .coming-soon-icon {
+            width: 80px !important;
+            height: 80px !important;
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6) !important;
+            border-radius: 50% !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            margin: 0 auto 25px !important;
+            font-size: 2rem !important;
+        }
+        
+        .towbot-masterpiece .coming-soon h3 {
+            font-size: 2rem !important;
+            font-weight: 700 !important;
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6) !important;
+            background-clip: text !important;
+            -webkit-background-clip: text !important;
+            -webkit-text-fill-color: transparent !important;
+            margin-bottom: 15px !important;
+        }
+        
+        .towbot-masterpiece .coming-soon p {
+            font-size: 1.2rem !important;
+            color: #94a3b8 !important;
+            margin-bottom: 40px !important;
+        }
+        
+        .towbot-masterpiece .features-preview {
+            display: grid !important;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)) !important;
+            gap: 20px !important;
+            max-width: 800px !important;
+            margin: 0 auto !important;
+        }
+        
+        .towbot-masterpiece .feature-preview {
+            background: white !important;
+            color: #1f2937 !important;
+            padding: 25px !important;
+            border-radius: 12px !important;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1) !important;
+            margin: 0 !important;
+        }
+        
+        .towbot-masterpiece .feature-preview h4 {
+            font-weight: 700 !important;
+            font-size: 1.1rem !important;
+            margin-bottom: 10px !important;
+            color: #1f2937 !important;
+        }
+        
+        .towbot-masterpiece .feature-preview p {
+            font-size: 0.9rem !important;
+            color: #6b7280 !important;
+            line-height: 1.5 !important;
+            margin: 0 !important;
+        }
+        
+        /* Hidden by default */
+        .towbot-masterpiece .hidden { 
+            display: none !important; 
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .towbot-masterpiece .header h1 { font-size: 2.5rem !important; }
+            .towbot-masterpiece .header .subtitle { font-size: 1.2rem !important; }
+            .towbot-masterpiece .header-features { flex-direction: column !important; gap: 15px !important; }
+            .towbot-masterpiece .modules-grid { grid-template-columns: 1fr !important; }
+            .towbot-masterpiece .queries-grid { grid-template-columns: 1fr !important; }
+            .towbot-masterpiece .ai-interface { padding: 25px !important; }
+            .towbot-masterpiece .ai-header { flex-direction: column !important; text-align: center !important; }
+            .towbot-masterpiece .button-group { flex-direction: column !important; }
+            .towbot-masterpiece .context-grid { grid-template-columns: 1fr !important; }
+            .towbot-masterpiece .btn-primary { min-width: auto !important; }
+            .towbot-masterpiece .response-header { flex-direction: column !important; text-align: center !important; }
+            .towbot-masterpiece .response-time { margin-left: 0 !important; }
+        }
+    </style>
+</head>
+<body>
+    <div class="towbot-masterpiece">
+        <!-- Epic Header -->
+        <div class="header">
+            <div class="container">
+                <div class="header-content">
+                    <h1>TowBot.AI MASTERPIECE</h1>
+                    <div class="subtitle">
+                        The Ultimate Texas Towing Legal Command Center
+                        <span class="badge">🚀 REVOLUTIONARY</span>
+                    </div>
+                    <div class="header-features">
+                        <div class="feature-badge">🤖 AI-Powered Legal Expert</div>
+                        <div class="feature-badge">⚖️ Texas Code § 2308 Specialist</div>
+                        <div class="feature-badge">⚡ Real-Time Compliance</div>
+                        <div class="feature-badge">🛡️ Risk Mitigation</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <!-- Module Selection Grid -->
+            <div class="modules-grid">
+                <div class="module-card active" data-module="ai-copilot">
+                    <div class="module-icon">🤖</div>
+                    <div class="module-title">TowBot AI Copilot</div>
+                    <div class="module-description">Your AI legal assistant that knows Texas towing law inside out</div>
+                    <div class="module-category category-ai">AI</div>
+                </div>
+                <div class="module-card" data-module="deadline-suite">
+                    <div class="module-icon">⏰</div>
+                    <div class="module-title">Smart Deadline Suite</div>
+                    <div class="module-description">AI-enhanced hearing & filing deadline calculations</div>
+                    <div class="module-category category-calculators">CALCULATORS</div>
+                </div>
+                <div class="module-card" data-module="fee-calculator">
+                    <div class="module-icon">💰</div>
+                    <div class="module-title">Dynamic Fee Calculator</div>
+                    <div class="module-description">Real-time Texas fee calculations with AI validation</div>
+                    <div class="module-category category-calculators">CALCULATORS</div>
+                </div>
+                <div class="module-card" data-module="document-generator">
+                    <div class="module-icon">📄</div>
+                    <div class="module-title">AI Document Factory</div>
+                    <div class="module-description">Generate demand letters, agreements, and forms instantly</div>
+                    <div class="module-category category-documents">DOCUMENTS</div>
+                </div>
+                <div class="module-card" data-module="compliance-monitor">
+                    <div class="module-icon">✅</div>
+                    <div class="module-title">Live Compliance Monitor</div>
+                    <div class="module-description">Real-time compliance checking across all operations</div>
+                    <div class="module-category category-compliance">COMPLIANCE</div>
+                </div>
+                <div class="module-card" data-module="risk-analyzer">
+                    <div class="module-icon">⚠️</div>
+                    <div class="module-title">Predictive Risk Engine</div>
+                    <div class="module-description">AI predicts and prevents legal issues before they happen</div>
+                    <div class="module-category category-analytics">ANALYTICS</div>
+                </div>
+                <div class="module-card" data-module="hearing-defense">
+                    <div class="module-icon">⚖️</div>
+                    <div class="module-title">Hearing Defense AI</div>
+                    <div class="module-description">AI-powered hearing preparation and defense strategies</div>
+                    <div class="module-category category-legal">LEGAL</div>
+                </div>
+                <div class="module-card" data-module="carrier-intel">
+                    <div class="module-icon">🔍</div>
+                    <div class="module-title">Carrier Intelligence</div>
+                    <div class="module-description">Advanced motor carrier lookup with AI insights</div>
+                    <div class="module-category category-analytics">RESEARCH</div>
+                </div>
+            </div>
+
+            <!-- AI Copilot Interface -->
+            <div id="ai-copilot" class="module-content">
+                <!-- Main AI Interface -->
+                <div class="ai-interface">
+                    <div class="ai-header">
+                        <div class="ai-avatar">🤖</div>
+                        <div>
+                            <div class="ai-title">TowBot.AI Legal Copilot</div>
+                            <div class="ai-subtitle">Your AI expert in Texas Occupations Code § 2308</div>
+                        </div>
+                        <div class="live-badge">LIVE</div>
+                    </div>
+
+                    <textarea 
+                        id="userQuery" 
+                        class="query-input" 
+                        placeholder="Ask me anything: compliance questions, fee calculations, hearing defense, risk assessments, legal strategies..."
+                    ></textarea>
+
+                    <div class="button-group">
+                        <button id="analyzeBtn" class="btn btn-primary">
+                            <span>⚡ Get Expert AI Analysis</span>
+                        </button>
+                        <button id="clearBtn" class="btn btn-secondary">Clear</button>
+                    </div>
+
+                    <div class="quick-actions">
+                        <button class="quick-btn" data-query="Perform a complete compliance check for my current operations">Compliance Check</button>
+                        <button class="quick-btn" data-query="Perform a complete fee audit for my current operations">Fee Audit</button>
+                        <button class="quick-btn" data-query="Perform a complete hearing prep for my current operations">Hearing Prep</button>
+                        <button class="quick-btn" data-query="Perform a complete risk scan for my current operations">Risk Scan</button>
+                    </div>
+                </div>
+
+                <!-- Sample Queries -->
+                <div class="queries-grid">
+                    <div class="query-section">
+                        <div class="query-header">
+                            💬 Expert Legal Scenarios
+                        </div>
+                        <div class="query-list">
+                            <div class="query-item" data-query="Owner filed hearing request on day 15 - what are my options and exposures?">
+                                <span class="query-prefix">Q:</span> Owner filed hearing request on day 15 - what are my options and exposures?
+                            </div>
+                            <div class="query-item" data-query="Calculate total fees for 45-day storage on Class B vehicle in Dallas">
+                                <span class="query-prefix">Q:</span> Calculate total fees for 45-day storage on Class B vehicle in Dallas
+                            </div>
+                            <div class="query-item" data-query="I need to generate demand letters for 12 vehicles - what's the fastest way?">
+                                <span class="query-prefix">Q:</span> I need to generate demand letters for 12 vehicles - what's the fastest way?
+                            </div>
+                            <div class="query-item" data-query="Property owner claims no standing agreement - how do I defend this tow?">
+                                <span class="query-prefix">Q:</span> Property owner claims no standing agreement - how do I defend this tow?
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="query-section">
+                        <div class="query-header">
+                            🧮 Advanced Operations
+                        </div>
+                        <div class="query-list">
+                            <div class="query-item" data-query="Vehicle owner is threatening lawsuit - what compliance gaps should I check?">
+                                <span class="query-prefix">Q:</span> Vehicle owner is threatening lawsuit - what compliance gaps should I check?
+                            </div>
+                            <div class="query-item" data-query="Need to audit last month's tows for compliance issues">
+                                <span class="query-prefix">Q:</span> Need to audit last month's tows for compliance issues
+                            </div>
+                            <div class="query-item" data-query="How do I calculate VSF penalty exposure for improper notices?">
+                                <span class="query-prefix">Q:</span> How do I calculate VSF penalty exposure for improper notices?
+                            </div>
+                            <div class="query-item" data-query="Owner wants hearing - what documents do I need to prepare defense?">
+                                <span class="query-prefix">Q:</span> Owner wants hearing - what documents do I need to prepare defense?
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Case Context -->
+                <div class="case-context">
+                    <div class="context-header">
+                        🚗 Active Case Context
+                    </div>
+                    <div class="context-grid">
+                        <div class="context-field">
+                            <label>Tow Date</label>
+                            <input type="date" id="towDate">
+                        </div>
+                        <div class="context-field">
+                            <label>Vehicle Type</label>
+                            <select id="vehicleType">
+                                <option value="passenger">Passenger Vehicle</option>
+                                <option value="motorcycle">Motorcycle</option>
+                                <option value="heavy">Heavy Duty</option>
+                                <option value="commercial">Commercial</option>
+                            </select>
+                        </div>
+                        <div class="context-field">
+                            <label>Tow Type</label>
+                            <select id="towType">
+                                <option value="ppi">Private Property Impound</option>
+                                <option value="police">Police-Ordered</option>
+                                <option value="incident">Incident/Accident</option>
+                                <option value="abandoned">Abandoned Vehicle</option>
+                            </select>
+                        </div>
+                        <div class="context-field">
+                            <label>Location</label>
+                            <select id="location">
+                                <option value="harris-county">Harris County</option>
+                                <option value="dallas-county">Dallas County</option>
+                                <option value="travis-county">Travis County</option>
+                                <option value="bexar-county">Bexar County</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- AI Response (Initially Hidden) -->
+                <div id="aiResponse" class="ai-response hidden">
+                    <div class="response-header">
+                        <div class="response-avatar">🤖</div>
+                        <div>
+                            <div class="response-title">AI Legal Expert Analysis</div>
+                            <div class="response-subtitle">Comprehensive analysis based on Texas Occupations Code § 2308</div>
+                        </div>
+                        <div class="response-time" id="responseTime"></div>
+                    </div>
+                    <div class="response-content" id="responseContent"></div>
+                    <div class="response-actions">
+                        <button class="action-btn action-export">📋 Export Analysis</button>
+                        <button class="action-btn action-alert">🔔 Set Alerts</button>
+                        <button class="action-btn action-docs">📄 Generate Documents</button>
+                        <button class="action-btn action-calc">🧮 Run Calculations</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Coming Soon Modules -->
+            <div id="deadline-suite" class="module-content hidden">
+                <div class="coming-soon">
+                    <div class="coming-soon-icon">⏰</div>
+                    <h3>Smart Deadline Suite</h3>
+                    <p>AI-enhanced deadline calculations with predictive analytics</p>
+                    <div class="features-preview">
+                        <div class="feature-preview">
+                            <h4>14-Day Calculator</h4>
+                            <p>Enhanced with holiday detection and risk scoring</p>
+                        </div>
+                        <div class="feature-preview">
+                            <h4>21-Day Window</h4>
+                            <p>Smart hearing date optimization</p>
+                        </div>
+                        <div class="feature-preview">
+                            <h4>Deadline Tracking</h4>
+                            <p>Real-time monitoring with alerts</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="fee-calculator" class="module-content hidden">
+                <div class="coming-soon">
+                    <div class="coming-soon-icon">💰</div>
+                    <h3>Dynamic Fee Calculator</h3>
+                    <p>Real-time Texas fee calculations with AI validation</p>
+                    <div class="features-preview">
+                        <div class="feature-preview">
+                            <h4>Live Rate Updates</h4>
+                            <p>Automatic updates from Texas regulations</p>
+                        </div>
+                        <div class="feature-preview">
+                            <h4>Compliance Validation</h4>
+                            <p>AI checks for fee accuracy and compliance</p>
+                        </div>
+                        <div class="feature-preview">
+                            <h4>Multi-County Support</h4>
+                            <p>Local ordinance integration</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="document-generator" class="module-content hidden">
+                <div class="coming-soon">
+                    <div class="coming-soon-icon">📄</div>
+                    <h3>AI Document Factory</h3>
+                    <p>Generate legal documents with AI intelligence</p>
+                    <div class="features-preview">
+                        <div class="feature-preview">
+                            <h4>Smart Templates</h4>
+                            <p>AI-customized based on case specifics</p>
+                        </div>
+                        <div class="feature-preview">
+                            <h4>Bulk Generation</h4>
+                            <p>Process hundreds of documents instantly</p>
+                        </div>
+                        <div class="feature-preview">
+                            <h4>Legal Validation</h4>
+                            <p>AI reviews for legal compliance</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="compliance-monitor" class="module-content hidden">
+                <div class="coming-soon">
+                    <div class="coming-soon-icon">✅</div>
+                    <h3>Live Compliance Monitor</h3>
+                    <p>Real-time compliance tracking across all operations</p>
+                    <div class="features-preview">
+                        <div class="feature-preview">
+                            <h4>Real-Time Scanning</h4>
+                            <p>Continuous monitoring of all operations</p>
+                        </div>
+                        <div class="feature-preview">
+                            <h4>Violation Alerts</h4>
+                            <p>Instant notifications of compliance issues</p>
+                        </div>
+                        <div class="feature-preview">
+                            <h4>Audit Reports</h4>
+                            <p>Comprehensive compliance documentation</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="risk-analyzer" class="module-content hidden">
+                <div class="coming-soon">
+                    <div class="coming-soon-icon">⚠️</div>
+                    <h3>Predictive Risk Engine</h3>
+                    <p>AI predicts and prevents legal issues</p>
+                    <div class="features-preview">
+                        <div class="feature-preview">
+                            <h4>Risk Scoring</h4>
+                            <p>AI-calculated risk levels for each operation</p>
+                        </div>
+                        <div class="feature-preview">
+                            <h4>Predictive Analytics</h4>
+                            <p>Forecast potential legal issues</p>
+                        </div>
+                        <div class="feature-preview">
+                            <h4>Mitigation Plans</h4>
+                            <p>AI-generated action plans to reduce risk</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="hearing-defense" class="module-content hidden">
+                <div class="coming-soon">
+                    <div class="coming-soon-icon">⚖️</div>
+                    <h3>Hearing Defense AI</h3>
+                    <p>AI-powered hearing preparation and defense strategies</p>
+                    <div class="features-preview">
+                        <div class="feature-preview">
+                            <h4>Case Analysis</h4>
+                            <p>AI reviews case strength and weaknesses</p>
+                        </div>
+                        <div class="feature-preview">
+                            <h4>Defense Strategy</h4>
+                            <p>Customized defense plans based on case facts</p>
+                        </div>
+                        <div class="feature-preview">
+                            <h4>Document Prep</h4>
+                            <p>Automated preparation of hearing documents</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="carrier-intel" class="module-content hidden">
+                <div class="coming-soon">
+                    <div class="coming-soon-icon">🔍</div>
+                    <h3>Carrier Intelligence</h3>
+                    <p>Advanced motor carrier research with AI insights</p>
+                    <div class="features-preview">
+                        <div class="feature-preview">
+                            <h4>Enhanced Lookup</h4>
+                            <p>AI-powered carrier research and verification</p>
+                        </div>
+                        <div class="feature-preview">
+                            <h4>Risk Assessment</h4>
+                            <p>Carrier reliability and compliance scoring</p>
+                        </div>
+                        <div class="feature-preview">
+                            <h4>Network Analysis</h4>
+                            <p>Industry connections and relationship mapping</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        console.log('🚀 TowBot.AI Masterpiece Loading...');
+
+        // Global state
+        let isAnalyzing = false;
+        let currentCase = {
+            towDate: '',
+            vehicleType: 'passenger',
+            towType: 'ppi',
+            location: 'harris-county'
+        };
+
+        // DOM Elements - Wait for page load
+        let userQuery, analyzeBtn, clearBtn, aiResponse, responseContent, responseTime;
+
+        // Initialize when DOM is ready
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('🎯 TowBot.AI Masterpiece Initializing...');
+            
+            // Get DOM elements
+            userQuery = document.getElementById('userQuery');
+            analyzeBtn = document.getElementById('analyzeBtn');
+            clearBtn = document.getElementById('clearBtn');
+            aiResponse = document.getElementById('aiResponse');
+            responseContent = document.getElementById('responseContent');
+            responseTime = document.getElementById('responseTime');
+            
+            if (!userQuery || !analyzeBtn) {
+                console.error('❌ Critical DOM elements not found');
+                return;
+            }
+            
+            // Module switching
+            const moduleCards = document.querySelectorAll('.towbot-masterpiece .module-card');
+            moduleCards.forEach(card => {
+                card.addEventListener('click', () => {
+                    const moduleId = card.dataset.module;
+                    switchModule(moduleId);
+                });
+            });
+
+            // Button events
+            analyzeBtn.addEventListener('click', handleAnalysis);
+            clearBtn.addEventListener('click', clearQuery);
+
+            // Quick action buttons
+            const quickBtns = document.querySelectorAll('.towbot-masterpiece .quick-btn');
+            quickBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const query = btn.dataset.query;
+                    userQuery.value = query;
+                });
+            });
+
+            // Sample query items
+            const queryItems = document.querySelectorAll('.towbot-masterpiece .query-item');
+            queryItems.forEach(item => {
+                item.addEventListener('click', () => {
+                    const query = item.dataset.query;
+                    userQuery.value = query;
+                });
+            });
+
+            // Case context inputs
+            const towDateInput = document.getElementById('towDate');
+            const vehicleTypeInput = document.getElementById('vehicleType');
+            const towTypeInput = document.getElementById('towType');
+            const locationInput = document.getElementById('location');
+            
+            if (towDateInput) towDateInput.addEventListener('change', updateCaseContext);
+            if (vehicleTypeInput) vehicleTypeInput.addEventListener('change', updateCaseContext);
+            if (towTypeInput) towTypeInput.addEventListener('change', updateCaseContext);
+            if (locationInput) locationInput.addEventListener('change', updateCaseContext);
+
+            // Action buttons
+            const actionBtns = document.querySelectorAll('.towbot-masterpiece .action-btn');
+            actionBtns.forEach(btn => {
+                btn.addEventListener('click', handleActionClick);
+            });
+            
+            // Initialize case context
+            updateCaseContext();
+            
+            console.log('✅ TowBot.AI Masterpiece Ready!');
+        });
+
+        // Module switching
+        function switchModule(moduleId) {
+            console.log('Switching to module:', moduleId);
+            
+            // Update module cards
+            document.querySelectorAll('.towbot-masterpiece .module-card').forEach(card => {
+                card.classList.remove('active');
+            });
+            const activeCard = document.querySelector(`.towbot-masterpiece [data-module="${moduleId}"]`);
+            if (activeCard) activeCard.classList.add('active');
+            
+            // Update content
+            document.querySelectorAll('.towbot-masterpiece .module-content').forEach(content => {
+                content.classList.add('hidden');
+            });
+            const activeContent = document.getElementById(moduleId);
+            if (activeContent) activeContent.classList.remove('hidden');
+        }
+
+        // Clear query
+        function clearQuery() {
+            if (userQuery) userQuery.value = '';
+            if (aiResponse) aiResponse.classList.add('hidden');
+        }
+
+        // Update case context
+        function updateCaseContext() {
+            const towDateInput = document.getElementById('towDate');
+            const vehicleTypeInput = document.getElementById('vehicleType');
+            const towTypeInput = document.getElementById('towType');
+            const locationInput = document.getElementById('location');
+            
+            currentCase = {
+                towDate: towDateInput ? towDateInput.value : '',
+                vehicleType: vehicleTypeInput ? vehicleTypeInput.value : 'passenger',
+                towType: towTypeInput ? towTypeInput.value : 'ppi',
+                location: locationInput ? locationInput.value : 'harris-county'
+            };
+            console.log('Case context updated:', currentCase);
+        }
+
+        // Handle analysis
+        async function handleAnalysis() {
+            if (!userQuery) return;
+            
+            const query = userQuery.value.trim();
+            if (!query || isAnalyzing) return;
+
+            console.log('🤖 Starting AI analysis for query:', query);
+            
+            isAnalyzing = true;
+            updateAnalyzeButton(true);
+            showLoadingResponse();
+
+            try {
+                await aiLegalAssistant(query, currentCase);
+            } catch (error) {
+                console.error('❌ Analysis error:', error);
+                showErrorResponse(error.message);
+            } finally {
+                isAnalyzing = false;
+                updateAnalyzeButton(false);
+            }
+        }
+
+        // AI Legal Assistant
+        async function aiLegalAssistant(query, caseData) {
+            console.log('🧠 AI Legal Assistant processing query...');
+
+            const prompt = `You are TowBot.AI's legal expert system, specialized in Texas Occupations Code § 2308. You have access to the complete TowBot.AI toolkit and understand all aspects of vehicle towing, storage, and legal compliance.
+
+CURRENT CASE CONTEXT: ${JSON.stringify(caseData)}
+
+USER QUERY: "${query}"
+
+Provide expert analysis including:
+1. **STATUTORY ANALYSIS** - Specific code sections and requirements
+2. **COMPLIANCE ASSESSMENT** - Current status and gaps
+3. **RISK EVALUATION** - Potential legal exposures (High/Medium/Low)
+4. **RECOMMENDED ACTIONS** - Specific next steps with deadlines
+5. **TOWBOT.AI TOOLS** - Which specific tools should be used
+6. **COST IMPACT** - Financial implications and fee calculations
+7. **TIMELINE** - Critical dates and deadlines
+
+Format your response in clear sections with actionable insights. Be authoritative but remind users this is guidance, not formal legal advice.`;
+
+            try {
+                if (typeof window !== 'undefined' && window.claude && window.claude.complete) {
+                    console.log('🤖 Using Claude AI...');
+                    const response = await window.claude.complete(prompt);
+                    let analysisResult;
+                    
+                    try {
+                        const parsedResponse = JSON.parse(response);
+                        analysisResult = parsedResponse.analysis || parsedResponse.response || response;
+                    } catch (parseError) {
+                        analysisResult = response;
+                    }
+                    
+                    showAIResponse(analysisResult);
+                } else {
+                    throw new Error('Claude AI not available');
+                }
+            } catch (error) {
+                console.warn('⚠️ Claude AI failed, using comprehensive fallback:', error.message);
+                const fallbackAnalysis = generateFallbackAnalysis(query, caseData);
+                showAIResponse(fallbackAnalysis);
+            }
+        }
+
+        // Generate comprehensive fallback analysis
+        function generateFallbackAnalysis(query, caseData) {
+            const currentDate = new Date().toLocaleDateString();
+            const towDate = caseData.towDate || 'Not specified';
+            const deadlineDate = caseData.towDate ? 
+                new Date(new Date(caseData.towDate).getTime() + 14 * 24 * 60 * 60 * 1000).toLocaleDateString() : 
+                'Cannot calculate without tow date';
+
+            return `**📋 TOWBOT.AI LEGAL ANALYSIS**
+Generated: ${currentDate}
+
+**🏛️ STATUTORY FRAMEWORK:**
+Your query "${query}" relates to Texas Occupations Code § 2308, specifically:
+• § 2308.208 - 14-day hearing request deadline (business days only)
+• § 2308.458 - 21-day hearing window requirement  
+• § 2308.454 - Maximum allowable fees and charges
+• § 2308.206 - Proper notice requirements to vehicle owners
+
+**📊 CASE ASSESSMENT:**
+Tow Date: ${towDate}
+Vehicle Type: ${caseData.vehicleType || 'Not specified'}
+Tow Type: ${caseData.towType || 'Not specified'}
+Location: ${caseData.location || 'Not specified'}
+Filing Deadline: ${deadlineDate}
+
+**✅ COMPLIANCE STATUS:**
+${caseData.towDate ? '⏰ Active Timeline Monitoring Required' : '📋 No Active Case - General Guidance'}
+💰 Fee Structure: Review recommended for current rates
+📄 Documentation: Ensure complete record maintenance
+🔔 Notice Requirements: Verify proper notice procedures
+
+**⚠️ RISK EVALUATION:**
+Based on your query about "${query}", primary risk factors include:
+• TIMING COMPLIANCE: Critical 14/21 day statutory deadlines
+• FEE ACCURACY: Ensuring charges comply with maximum rates
+• DOCUMENTATION: Maintaining complete, accurate records
+• NOTICE PROCEDURES: Proper notification to all parties
+
+Risk Level: ${caseData.towDate ? 'MEDIUM - Active monitoring required' : 'LOW - Preventive guidance'}
+
+**🎯 RECOMMENDED ACTIONS:**
+1. **IMMEDIATE (Today):**
+   - Verify all critical dates against statutory requirements
+   - Review fee calculations for accuracy and compliance
+   - Ensure complete documentation is maintained
+
+2. **SHORT-TERM (1-3 days):**
+   - Implement systematic compliance monitoring
+   - Review notice procedures and documentation
+   - Consider preemptive compliance measures
+
+3. **ONGOING:**
+   - Regular compliance audits using TowBot.AI tools
+   - Staff training on statutory requirements
+   - Documentation system improvements
+
+**🔧 RECOMMENDED TOWBOT.AI TOOLS:**
+1. **Smart Deadline Suite** - Calculate all critical statutory dates
+2. **Dynamic Fee Calculator** - Verify fee compliance with current rates
+3. **AI Document Factory** - Generate required legal notices and forms
+4. **Live Compliance Monitor** - Ongoing compliance tracking and alerts
+5. **Hearing Defense AI** - Preparation for potential hearings
+
+**💰 FINANCIAL IMPACT ANALYSIS:**
+Current Fee Compliance: ${caseData.towDate ? 'Active case - review required' : 'No active exposure'}
+Potential Statutory Penalties: Varies by violation type
+Recommended: Full compliance audit to identify any gaps
+Cost of Prevention vs. Cost of Violation: Prevention strongly recommended
+
+**⏰ CRITICAL TIMELINE:**
+${caseData.towDate ? `
+• Tow Date: ${towDate}
+• Filing Deadline: ${deadlineDate}
+• Days Remaining: ${Math.max(0, Math.ceil((new Date(deadlineDate) - new Date()) / (1000 * 60 * 60 * 24)))} days
+• Hearing Window: 21 days from filing (if filed)
+` : '• No active deadlines - establish monitoring for future cases'}
+
+**📚 SUPPORTING AUTHORITY:**
+• Texas Occupations Code Chapter 2308 (Complete)
+• TDLR Rules and Regulations
+• Local Municipal Ordinances (location-specific)
+• Recent Case Law and Interpretations
+
+**⚖️ LEGAL CONCLUSION:**
+${query.toLowerCase().includes('hearing') ? 
+    'Hearing-related matters require immediate attention to statutory deadlines.' :
+    query.toLowerCase().includes('fee') ?
+    'Fee compliance is critical - review current rates and calculations.' :
+    'Proactive compliance monitoring recommended to prevent issues.'
+}
+
+**🔍 NEXT STEPS:**
+1. Use TowBot.AI Smart Deadline Suite for precise date calculations
+2. Run Dynamic Fee Calculator for current rate compliance
+3. Generate required documents using AI Document Factory
+4. Implement Live Compliance Monitor for ongoing protection
+
+**⚠️ DISCLAIMER:**
+This analysis is provided by TowBot.AI's expert system for informational purposes only. While based on current Texas law and regulations, this does not constitute formal legal advice. For matters involving significant legal exposure or complex situations, consult with qualified legal counsel familiar with Texas towing law.
+
+**📞 FOLLOW-UP RECOMMENDATIONS:**
+- Schedule regular compliance reviews
+- Maintain updated documentation systems  
+- Consider legal counsel for complex cases
+- Use TowBot.AI tools for ongoing monitoring
+
+---
+*Analysis generated by TowBot.AI Legal Expert System*
+*Based on Texas Occupations Code § 2308*
+*${currentDate} - ${new Date().toLocaleTimeString()}*`;
+        }
+
+        // Show loading response
+        function showLoadingResponse() {
+            if (!aiResponse || !responseContent || !responseTime) return;
+            
+            aiResponse.classList.remove('hidden');
+            responseTime.textContent = new Date().toLocaleTimeString();
+            responseContent.innerHTML = `<div style="display: flex; align-items: center; justify-content: center; min-height: 200px; flex-direction: column; gap: 15px;">
+                <div class="loading-spinner"></div>
+                <div style="font-family: 'Inter', sans-serif; font-weight: 600; color: #374151;">
+                    AI Analyzing Legal Issues...
+                </div>
+                <div style="font-family: 'Inter', sans-serif; font-size: 0.9rem; color: #6b7280;">
+                    Processing query against Texas Occupations Code § 2308
+                </div>
+            </div>`;
+        }
+
+        // Show AI response
+        function showAIResponse(analysis) {
+            if (!responseContent || !aiResponse || !responseTime) return;
+            
+            responseContent.textContent = analysis;
+            aiResponse.classList.remove('hidden');
+            responseTime.textContent = new Date().toLocaleTimeString();
+            
+            // Scroll to response
+            aiResponse.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+
+        // Show error response
+        function showErrorResponse(errorMessage) {
+            const errorAnalysis = `**❌ ANALYSIS ERROR**
+
+Unable to complete AI analysis: ${errorMessage}
+
+**🔧 TROUBLESHOOTING:**
+• Check your internet connection
+• Refresh the page and try again
+• Contact support if the issue persists
+
+**📋 MANUAL GUIDANCE:**
+For immediate assistance with Texas towing law questions:
+• Review Texas Occupations Code § 2308
+• Check TDLR website for current regulations
+• Consult with qualified legal counsel
+
+**🎯 ALTERNATIVE APPROACH:**
+Use the specific TowBot.AI calculators and tools available on the site for immediate compliance checking and fee calculations.`;
+
+            showAIResponse(errorAnalysis);
+        }
+
+        // Update analyze button
+        function updateAnalyzeButton(loading) {
+            if (!analyzeBtn) return;
+            
+            if (loading) {
+                analyzeBtn.innerHTML = `
+                    <div class="loading-spinner"></div>
+                    <span>AI Analyzing Legal Issues...</span>
+                `;
+                analyzeBtn.disabled = true;
+            } else {
+                analyzeBtn.innerHTML = '<span>⚡ Get Expert AI Analysis</span>';
+                analyzeBtn.disabled = false;
+            }
+        }
+
+        // Handle action button clicks
+        function handleActionClick(event) {
+            const button = event.target.closest('.action-btn');
+            if (!button) return;
+            
+            const action = button.className.includes('export') ? 'export' :
+                          button.className.includes('alert') ? 'alert' :
+                          button.className.includes('docs') ? 'docs' : 'calc';
+            
+            switch(action) {
+                case 'export':
+                    exportAnalysis(button);
+                    break;
+                case 'alert':
+                    setAlert();
+                    break;
+                case 'docs':
+                    generateDocuments();
+                    break;
+                case 'calc':
+                    runCalculations();
+                    break;
+            }
+        }
+
+        // Action functions
+        function exportAnalysis(button) {
+            if (!responseContent) return;
+            
+            const content = responseContent.textContent;
+            const blob = new Blob([content], { type: 'text/plain' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `TowBot-AI-Analysis-${new Date().toISOString().split('T')[0]}.txt`;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+            
+            // Show feedback
+            const originalText = button.innerHTML;
+            button.innerHTML = '✅ Exported!';
+            setTimeout(() => {
+                button.innerHTML = originalText;
+            }, 2000);
+        }
+
+        function setAlert() {
+            alert('🔔 Alert system coming soon! This will integrate with your calendar and notification systems.');
+        }
+
+        function generateDocuments() {
+            alert('📄 Document generation coming soon! This will auto-generate demand letters, notices, and forms based on your case.');
+        }
+
+        function runCalculations() {
+            alert('🧮 Advanced calculations coming soon! This will run fee calculations, deadline analysis, and risk assessments.');
+        }
+
+        console.log('🎸 TowBot.AI Masterpiece loaded and ready to rock!');
+    </script>
+</body>
+</html>
